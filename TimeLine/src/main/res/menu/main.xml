@@ -2,8 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/Search_item"
+        android:icon="@drawable/search"
+        android:title="@string/Search"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/Clips_item"
+        android:icon="@drawable/clips"
+        android:title="@string/Clip"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/Week_item"
+        android:icon="@drawable/week_list"
+        android:title="@string/Week"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Calendar_item"
+        android:icon="@drawable/calendar"
+        android:title="@string/Month"
         app:showAsAction="never" />
 </menu>

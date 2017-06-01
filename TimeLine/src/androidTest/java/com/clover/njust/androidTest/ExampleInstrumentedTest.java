@@ -1,4 +1,4 @@
-package com.clover.njust.androidstudioproject;
+package com.clover.njust.androidTest;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
