@@ -1,9 +1,9 @@
 package com.clover.njust.Activity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,10 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.clover.njust.androidstudioproject.R;
+import com.clover.njust.R;
+import com.clover.njust.utils.DbManager;
+import com.clover.njust.utils.MySQLiteHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private MySQLiteHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +30,28 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        helper = DbManager.getInstance(this);
+        //SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase()
+        System.out.println("1111111111111");
+        SQLiteDatabase db = helper.getWritableDatabase();
+        System.out.println("1111111111111");
+        db.close();
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+/*        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });*/
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, addTask.class);
+                startActivity(intent);
             }
         });
 
